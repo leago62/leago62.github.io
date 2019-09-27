@@ -19,6 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Leanne's Portfolio
+author: Leanne Go
 email: leanne.go@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This website is home to my Data Science + Misc portfolio and for wandering
