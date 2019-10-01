@@ -1,9 +1,7 @@
 ---
 layout: page
-title: Project
-permalink: /project/
+title: Projects
+permalink: /projects/
 ---
 
-project project 
-
-[jekyll-organization]: https://github.com/jekyll
+project project

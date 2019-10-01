@@ -186,14 +186,17 @@
 }
 
 #bannerimage {
-  width: 100%;
-  background-image: url(/img/banner.png);
-  height: 315px;
+  background: DarkSlateGray;
+  position: relative;
+  left:0;
+  right:0;
+  // background-image: url(/img/banner.png);
+  height: 200px;
   margin-bottom: 5%;
-  background-color: DarkSlateGray;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:cover;
+  // padding: 15px;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size:cover;
 }
 
 /**
