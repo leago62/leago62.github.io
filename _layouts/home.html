@@ -10,12 +10,14 @@ title: Hello
   {%- endif -%}
 
   <div id="bannerimage">
-    <!-- <h1>Welcome!</h1> -->
+    <h1>Welcome!</h1>
+    <p>Thanks for visiting my portfolio! This is very much a work in progress,
+      so please check back for updates once in a while.</p>
   </div>
 
   {{ content }}
 
-  {%- if site.posts.size > 0 -%}
+  <!-- {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
@@ -33,6 +35,6 @@ title: Hello
       </li>
       {%- endfor -%}
     </ul>
-  {%- endif -%}
+  {%- endif -%} -->
 
 </div>

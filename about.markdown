@@ -26,25 +26,34 @@ know. I'll gladly take it!
 Here's a link to my one page resume and some more information about my
 background and experiences: [Resume](/about/resume)
 
----
-&nbsp;
 &nbsp;
 
-This is a little something I'm going to call my [mind map](/about/mind_map).
+---
+
+&nbsp;
+
+COMING SOON: This is a little something I'm going to call my [mind map](/about/mind_map).
 Basically this helps me organize the pieces of information I've found while
 exploring and learning about data. It helps me keep track of resources and make
 connections!
 
 &nbsp;
-&nbsp;
 
 ---
 
 &nbsp;
-&nbsp;
 
-As an aside, I'm really into learning about sustainability and how to become
+<!-- As an aside, I'm really into learning about sustainability and how to become
 environmentally conscious. I've been looking into tiny houses as a means of
 living economically with a smaller footprint. I also love to design house plans.
-I'm definitely an amateur, but here are some of my ideas!
+I'm definitely an amateur, but I hope to post some of my ideas here.
 [Tiny House Ideas](/about/tiny_house)
+
+&nbsp;
+
+---
+
+&nbsp; -->
+
+This website is hosted by github pages. I have modified the original theme
+minima (Jekyll) to get it to its present state.
