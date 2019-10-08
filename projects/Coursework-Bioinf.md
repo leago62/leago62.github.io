@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Coursework - Bioinformatics"
+title:  "Undergrad Coursework - Bioinformatics"
 date:   2019-6-14
 permalink: /projects/Coursework-Bioinf
 ---
@@ -71,8 +71,7 @@ alignment, rearragement, detecting mutations, and clustering. We covered graph
 algorithms, randomize algorithms, HMM, and more. The class was supplemented by
 coding problems on ROSALIND. These coding challenges could be done in any
 language, but I chose to teach myself python in order to complete these
-challenges because I had heard it was one of the primary languages for data
-science.
+challenges because I know it is one of the primary languages for data science.
 
 In the second class, we went over more theory. Topics included BLAST (E-values,
 p-values, scoring matrices, PAM, and BLOSUM), dictionary matching, regular

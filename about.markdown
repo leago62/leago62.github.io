@@ -20,11 +20,14 @@ Currently I am in the process of pursing data science topics with the hope of
 finding a job in the data field in the near future. During this time I will also
 be determining if I should pursue a more advanced degree and in what field.
 
+Topics I am currently pursuing: SQL (MySQL), machine learning and deep learning.
+
+Here's a link to my one page resumes: [Resume Link](/about/resume).\
+Please see the projects tab to learn more about my undergraduate coursework.
+
+
 If you have any advice for me as I navigate through this field, please let me
 know. I'll gladly take it!
-
-Here's a link to my one page resumes. Please see the projects tab to learn more
-about my undergraduate coursework. [Resume](/about/resume)
 
 &nbsp;
 
