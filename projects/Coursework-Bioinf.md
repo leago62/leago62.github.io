@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Cook Help Project"
+title:  "Coursework - Bioinformatics"
 date:   2019-6-14
 permalink: /projects/Coursework-Bioinf
 ---
@@ -19,21 +19,22 @@ permalink: /projects/Coursework-Bioinf
 In the bioinformatics lab class, we learned how to use bioinformatics tools to
 analyze data in different situations with an emphasis on using genetic data.
 Some of the topics we covered include alignment, variant calling, assembly,
-GWAS, differential expression, motif finding, and protein sequencing.
+GWAS, differential expression, motif finding, and protein sequencing. The data
+we used came from various experiments such as NGS, RNA-seq, ChIP-seq, and scRNA-seq.
 Here is a partial list of tools we used in the class:
-- samtools
 - BWA-MEM
-- Varscan
-- sklearn (PCA)
-- plink
-- minima/Spades
-- matplotlib (volcano plots)
 - GO enrichment analysis
 - HOMER
-- ScanPy
-- Pyteomics
-- Mascot
 - IGV
+- Mascot
+- matplotlib (volcano plots and others)
+- minima/Spades
+- plink
+- Pyteomics
+- samtools
+- ScanPy
+- sklearn (PCA)
+- Varscan
 
 The end of the quarter project consisted of trying to replicate a couple of the
 tables and figures in a published paper in small groups. We decided to use the
@@ -77,3 +78,10 @@ In the second class, we went over more theory. Topics included BLAST (E-values,
 p-values, scoring matrices, PAM, and BLOSUM), dictionary matching, regular
 expressions, HMMs, expression matrix analysis and supervised classification, and
 protein expression using mass spec.
+
+#### Other Biology Classes
+
+A couple of the classes I took focused on the process behind various genomic
+techniques like ATAC-seq, ChIP-seq, RNA-seq, blotting, and PCR. So I am familiar
+with a lot of the different processes. One of the classes I took also went more
+in depth with the data that each experiment produces.

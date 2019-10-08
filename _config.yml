@@ -22,12 +22,13 @@ title: Leanne's Portfolio
 author: Leanne Go
 email: leanne.go@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This website is home to my Data Science + Misc portfolio and for wandering
-  around in web land.
+  This website is home to my Data Science + Bioinformatics + Misc portfolio and
+  for wandering around in web land.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "leago62.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: leago62
 github_username:  leago62
+linkedin_username: leago62
 
 header_pages:
   - about.markdown

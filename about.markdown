@@ -11,20 +11,20 @@ My name is Leanne and this is my portfolio.
 I recently graduated from UCSD with a major in bioinformatics. I started school
 as a molecular biology major, but after taking the introductory computer science
 class I was hooked on trying to find problems and build solutions in the digital
- sphere. This is ultimate what brought me to data. Whether it's needfinding or
+ sphere. This is ultimately what brought me to data. Whether it's needfinding or
 building models, I think it's amazing how much we can learn from data. I
 strongly believe that ethically analyzed data can drive us towards a better
 future and am motivated to find a career in this area.
 
 Currently I am in the process of pursing data science topics with the hope of
-finding a job in the data field in the near future, all the while determining if
- I should pursue a more advanced degree.
+finding a job in the data field in the near future. During this time I will also
+be determining if I should pursue a more advanced degree and in what field.
 
 If you have any advice for me as I navigate through this field, please let me
 know. I'll gladly take it!
 
-Here's a link to my one page resume and some more information about my
-background and experiences: [Resume](/about/resume)
+Here's a link to my one page resumes. Please see the projects tab to learn more
+about my undergraduate coursework. [Resume](/about/resume)
 
 &nbsp;
 
