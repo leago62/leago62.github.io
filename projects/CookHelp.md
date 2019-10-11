@@ -33,48 +33,124 @@ for my own inventory and also for the instruction steps of the recipe.\
 <img src="/projects/t1_tables.png" alt="Recipe database setup" width=500px>
 
 
-This is the python code I am working on right now. I am trying to input into the
-table and once that works, I will working on how to parse the strings from the
-recipe documents to insert into all tables.
+This is the python code I am working on right now. It takes prompts and takes
+user input to fill out the categories and adds them to the MySQL database. The
+parsing method is very simple, but I am looking at NLP methods to parse the data.
 
 ```python
 import mysql.connector
 
 mydb = mysql.connector.connect (
-    # Connect information: host user, passwd
+    # host, user, passwd
     database="cookhelp"
 )
 
 mycursor = mydb.cursor(buffered=True)
 
-recipe_name = "Baked Salmon"
-ing = ["Salmon (w/skin on)", "lemon (fresh)", "salt", "pepper"]
-ing_qty = [1.0, 0.5, None, None]
-ing_amt = ["fillet", None, None, None]
-cooktime = 35
+def is_numeric(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
-## INSERT IGNORE is not doing the IGNORE.
+# Can only be used for "qty amt ing_name"
+def manualParse():
+    ing_list = []
+    ing_qty = []
+    ing_amt = []
+    print("Enter recipe name: ")
+    recipe_name = input()
+    print("Enter cooktime: ")
+    cooktime = input()
+    print("Enter ingredients: ")
+    ing1 = input()
+    while ing1 != "":
+        try:
+            qty, p1 = ing1.split(" ",1)
+            if is_numeric(qty):
+                amt, ing_name = p1.split(" ",1)
+            else:
+                qty = None
+                amt = None
+                ing_name = ing1
+        except ValueError:
+            qty = None
+            amt = None
+            ing_name = ing1
+        ing_qty.append(qty)
+        ing_amt.append(amt)
+        ing_list.append(ing_name)
+        ing1 = input()
+    return recipe_name, cooktime, ing_list, ing_qty, ing_amt;
 
-sql = "INSERT IGNORE INTO `recipes` (`Recipe_Name`, `Cooktime`) VALUES (%s,%s)"
-val = (recipe_name,cooktime)
-mycursor.execute(sql,val)
-recipe_id = mycursor.lastrowid
+recipe_name, cooktime, ing, ing_qty, ing_amt = manualParse()
+
+insert_recipe = ("INSERT INTO recipes (`Recipe_Name`, `Cooktime`) "
+    "SELECT * FROM (SELECT %s,%s) AS tmp "
+    "WHERE NOT EXISTS ("
+	   "SELECT `Recipe_ID` FROM recipes WHERE `Recipe_Name` = %s"
+    ") LIMIT 1;")
+val = (recipe_name, cooktime, recipe_name)
+mycursor.execute(insert_recipe,val)
+mydb.commit()
+
+select_rid = ("SELECT `Recipe_ID` FROM recipes WHERE `Recipe_Name` = %s;")
+val1 = (recipe_name,)
+mycursor.execute(select_rid,val1)
+last_rid = mycursor.fetchone()[0]
 
 for x in range(len(ing)):
-    sql2 = "INSERT IGNORE INTO `ing_list` (`Ing_Name`) VALUES (%s)"
+    insert_ing_list = ("INSERT INTO `ing_list` (`Ing_Name`) "
+        "SELECT * FROM (SELECT %s) AS tmp_i "
+        "WHERE NOT EXISTS ("
+            "SELECT Ing_ID FROM `ing_list` WHERE Ing_Name = %s"
+        ") LIMIT 1;")
     ing_query = "SELECT `Ing_ID` FROM `ing_list` WHERE `Ing_Name` = %s"
     print(ing[x])
-    mycursor.execute(sql2,(ing[x],))
+    mycursor.execute(insert_ing_list,(ing[x],ing[x]))
 
     mycursor.execute(ing_query,(ing[x],))
-    ing_id = mycursor.fetchone()
+    ing_id = mycursor.fetchone()[0]
 
-    val3 = (recipe_id, ing_id[0], ing_qty[x], ing_amt[x])
-    print(val3)
-    sql3 = "INSERT IGNORE INTO `recipe_ing` VALUES (%s, %s, %s, %s)"
-    mycursor.execute(sql3,val3)
+    val2 = (last_rid, ing_id, ing_qty[x], ing_amt[x])
+    print(val2)
+    insert_rec_ing = "INSERT IGNORE INTO `recipe_ing` VALUES (%s, %s, %s, %s)"
+    mycursor.execute(insert_rec_ing,val2)
+    mydb.commit()
 
-mydb.commit()
 mycursor.close()
 mydb.close()
+```
+
+SQL code to create the database:
+
+``` sql
+DROP DATABASE IF EXISTS `cookhelp`;
+CREATE DATABASE `cookhelp`;
+USE `cookhelp`;
+
+SET NAMES utf8;
+SET character_set_client = utf8mb4;
+
+CREATE TABLE `recipes` (
+  `Recipe_ID` tinyint NOT NULL AUTO_INCREMENT,
+  `Recipe_Name` varchar(50) NOT NULL,
+  `Cooktime` tinyint,
+  PRIMARY KEY (`Recipe_ID`)
+);
+
+CREATE TABLE `recipe_ing` (
+  `Recipe_ID` tinyint NOT NULL,
+  `Ing_ID` tinyint NOT NULL,
+  `Qty` float,
+  `Amt` varchar(25)
+  -- Need to figure out how to store diced vs canned vs paste etc.
+);
+
+CREATE TABLE `ing_list` (
+  `Ing_ID` tinyint NOT NULL AUTO_INCREMENT,
+  `Ing_Name` varchar(50) NOT NULL,
+  PRIMARY KEY (`Ing_ID`)
+);
 ```
