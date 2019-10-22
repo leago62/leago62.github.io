@@ -52,7 +52,7 @@ mutations and original sequence. The consensus sequences were then fed into
 Quick Tree at PhyML to generate the phylogenetic trees. The following is a
 picture of the original vs our replicate.
 
-![Image from my end of year project. Original vs Duplicate](/projects/CSE185-proj.jpg)
+![Image from my end of year project. Original vs Duplicate](/projects/images/CSE185-proj.jpg)
 
 &nbsp;
 

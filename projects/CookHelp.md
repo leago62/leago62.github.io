@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Cook Help Project"
-date:   2019-10-4
+date:   2019-10-22
 permalink: /projects/Cook_Help
 ---
 
@@ -17,6 +17,10 @@ of application that will allow me to query recipes based on what I want to cook
 with and my own ingredient inventory. It will hopefully minimize the amount of
 items I would need to buy and my overall food waste.
 
+Next Step: Set up foreign keys to connect my tables. Study NLP methods nd then
+implement one to take out the important ingredient information from any written
+recipe source.
+
 Goals: My goal is to be able to build this dataset using SQL to grow my
 knowledge of databases and the SQL language. I also hope to be able to directly
 take recipe information from images and websites and add it into the database.
@@ -29,8 +33,8 @@ experience will really help me grow.
 
 
 This is how my tables are set up right now using MySQL. I am missing the tables
-for my own inventory and also for the instruction steps of the recipe.\
-<img src="/projects/t1_tables.png" alt="Recipe database setup" width=500px>
+for my own inventory and also for the instruction steps of the recipe.
+<img src="/projects/images/t1_tables.png" alt="Recipe database setup" width=500px>
 
 
 This is the python code I am working on right now. It takes prompts and takes
@@ -140,17 +144,19 @@ CREATE TABLE `recipes` (
   PRIMARY KEY (`Recipe_ID`)
 );
 
-CREATE TABLE `recipe_ing` (
-  `Recipe_ID` tinyint NOT NULL,
-  `Ing_ID` tinyint NOT NULL,
-  `Qty` float,
-  `Amt` varchar(25)
-  -- Need to figure out how to store diced vs canned vs paste etc.
-);
-
 CREATE TABLE `ing_list` (
   `Ing_ID` tinyint NOT NULL AUTO_INCREMENT,
   `Ing_Name` varchar(50) NOT NULL,
   PRIMARY KEY (`Ing_ID`)
+);
+
+CREATE TABLE `recipe_ing` (
+  `Recipe_ID` tinyint NOT NULL,
+  `Ing_ID` tinyint NOT NULL,
+  `Qty` float,
+  `Amt` varchar(25),
+  FOREIGN KEY (Recipe_ID) REFERENCES recipes(Recipe_ID),
+  FOREIGN KEY (Ing_ID) REFERENCES ing_list(ING_ID)
+  -- Need to figure out how to store diced vs canned vs paste etc.
 );
 ```
